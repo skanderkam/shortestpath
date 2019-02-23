@@ -29,7 +29,7 @@ for line in sys.stdin:
     else:
         if current_node:
             # Write result to STDOUT
-            print '%s\t(%s,%s,%s)' % (current_node, current_dist, neighbors, current_path)
+            print '%s\t(%s/%s/%s)' % (current_node, current_dist, neighbors, current_path)
         # Moving to the next node
         current_node = node
         current_dist = dist
@@ -38,4 +38,4 @@ for line in sys.stdin:
 
 # We do not forget to print the last element not printed by the for loop
 if current_node == node:
-    print '%s\t(%s,%s,%s)' % (current_node, current_dist, neighbors, current_path)
+    print '%s\t(%s/%s/%s)' % (current_node, current_dist, neighbors, current_path)
