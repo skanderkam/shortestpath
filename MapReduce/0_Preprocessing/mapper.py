@@ -16,4 +16,4 @@ for line in sys.stdin:
     # Distance = 0 if the node is the start
     if line[0] == start:
         dist = 0
-    print '%s\t(%s,(%s;%s),%s)' % (line[0], dist, line[2], line[1], "")
+    print '%s\t(%s,(%s;%s),%s)' % (line[0], dist, line[2], line[1], " ")
