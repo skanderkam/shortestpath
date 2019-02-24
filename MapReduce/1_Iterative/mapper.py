@@ -1,8 +1,9 @@
 #!/usr/bin/python
 import sys
 
-# Example
-start = '4'
+# Initializing the start variable
+start_file = open('MapReduce/_start.txt', 'r')
+start = start_file.readline(1)
 
 # Iterative Map
 for line in sys.stdin:
