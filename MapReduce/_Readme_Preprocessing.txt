@@ -6,9 +6,9 @@
 
 3. Execute the following command in your terminal when your working directory is set on shortestpath 
 
-> cat data/graph.txt | MapReduce/0_Preprocessing/mapper.py | sort -k1,1 -s | MapReduce/0_Preprocessing/reducer.py | MapReduce/1_Iterative/mapper.py | sort -k1,1 -s | MapReduce/1.Iterative/reducer.py
+> cat data/graph.txt | MapReduce/0_Preprocessing/mapper.py | sort -k1,1 -s | MapReduce/0_Preprocessing/reducer.py | MapReduce/1_Iterative/mapper.py | sort -k1,1 -s | MapReduce/1_Iterative/reducer.py
 
-4. Append the ' MapReduce/1_Iterative/mapper.py | sort -k1,1 -s | MapReduce/1.Iterative/reducer.py ' command as many times as you need to the command of step 3 until the start file contains the id you entered in the end file
+4. Append the ' MapReduce/1_Iterative/mapper.py | sort -k1,1 -s | MapReduce/1_Iterative/reducer.py ' command as many times as you need to the command of step 3 until the start file contains the id you entered in the end file
 
 
 
