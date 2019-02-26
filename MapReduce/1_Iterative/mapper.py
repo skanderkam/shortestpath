@@ -4,13 +4,14 @@ import sys
 # Initializing the start variable
 start_file = open('MapReduce/_start.txt', 'r')
 start = start_file.readline(1)
+start_file.close()
 
 # Iterative Map
 for line in sys.stdin:
     # Parse the input from the reducer
     line = line.strip('\n')
     key, value = line.split('\t')
-    value_clean = value[1:-1].split('/')
+    value_clean = value[1:-1].split('/') # Clean the parentheses
     
     # Assigning new names for more clarity
     node = key
