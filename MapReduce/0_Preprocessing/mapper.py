@@ -2,7 +2,7 @@
 import sys
 
 # Initializing the start variable
-start_file = open('MapReduce/_start.txt', 'r')
+start_file = open('MapReduce/tmp/_start.txt', 'r')
 start = start_file.readline(1)
 
 # Initialization Map
