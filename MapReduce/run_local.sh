@@ -33,17 +33,22 @@ launch_job() {
 
   cat "$TMP_FILE" > "$TMP_DATA_FILE"
 
-  while [ "$START" != "$END" ]; do
+  while [ "$START" != "$END" ] && [ "$START" != "None" ]; do
         cat "$TMP_DATA_FILE" | ./MapReduce/1_Iterative/mapper.py | sort -k1,1 -s | ./MapReduce/1_Iterative/reducer.py > "$TMP_FILE"
         cat "$TMP_FILE" > "$TMP_DATA_FILE"
         START=$(cat "$START_FILE")
   done
 
-  while read -r -a line; do 
+  if [ "$START" == "None" ]
+  then
+    echo 'No path could be find between your start and end nodes'
+    else
+    while read -r -a line; do 
         if [ "${line[0]}" == "$END" ]; then
             echo "${line[*]}"
         fi
     done < "$TMP_DATA_FILE"
+    fi
 }
 
 run_job() {

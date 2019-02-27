@@ -15,14 +15,17 @@ for line in sys.stdin:
     
     # Assigning new names for more clarity
     node = key
-    neighbors = value_clean[1][1:-1].split(', ')
+    neighbors = value_clean[1]
+    if neighbors != ' ' :
+        neighbors = value_clean[1][1:-1].split(', ')
+            
     path = value_clean[2]
 
     # Print the line in all cases
     print(line)
 
     # If the node is the start then print the line and print a new line for each of its neighbors
-    if node == start:
+    if node == start and neighbors != ' ':
 
         # Transforming the distance into an integer for the purpose of computation
         dist = int(value_clean[0])
