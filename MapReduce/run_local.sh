@@ -20,10 +20,6 @@ init() {
   then
     mkdir -p "$TMP_DIR"
   fi
-  if [ ! -f "$INPUT_FILE" ]
-  then
-    echo "Input file not found !"
-  fi
 }
 
 launch_job() {
@@ -50,5 +46,17 @@ launch_job() {
     done < "$TMP_DATA_FILE"
 }
 
+run_job() {
+  if [ ! -f "$INPUT_FILE" ] 
+  then
+    echo "Input file not found"
+    elif [ "$(cat "$INPUT_FILE" | ./MapReduce/0_Preprocessing/init.py)" == "0" ]
+    then
+        echo "Start node or end node unreachable"
+    else
+        launch_job
+  fi
+}
+
 init
-launch_job
+run_job
