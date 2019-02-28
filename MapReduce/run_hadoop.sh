@@ -4,14 +4,13 @@ START="$1"
 END="$2"
 
 init() {
-  TMP_DIR="$(pwd)/MapReduce/tmp/"
+  mkdir /home/hadoop/tmp
 
   START_FILENAME="_start.txt"
   START_FILE="$TMP_DIR$START_FILENAME"
   echo "$START" > "$START_FILE"
 
-  cat "$START_FILE"
-
+  put "$START_FILE" /home/hadoop/tmp
 }
 
 launch_job() {
