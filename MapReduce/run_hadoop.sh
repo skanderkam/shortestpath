@@ -1,5 +1,19 @@
 #!/bin/sh
 
+START="$1"
+END="$2"
+
+init() {
+  TMP_DIR="$(pwd)/MapReduce/tmp/"
+
+  START_FILENAME="_start.txt"
+  START_FILE="$TMP_DIR$START_FILENAME"
+  echo "$START" > "$START_FILE"
+
+  cat "$START_FILE"
+
+}
+
 launch_job() {
   hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
   -input /user/hadoop/wc/input \
@@ -10,4 +24,4 @@ launch_job() {
   -reducer /home/hadoop/reducer.py
 }
 
-launch_job
+init
