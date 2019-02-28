@@ -10,7 +10,7 @@ init() {
   START_FILE="$TMP_DIR$START_FILENAME"
   echo "$START" > "$START_FILE"
 
-  put "$START_FILE" /home/hadoop/tmp
+  mv "$START_FILE" /home/hadoop/tmp
 }
 
 launch_job() {
