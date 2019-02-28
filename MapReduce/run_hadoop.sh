@@ -1,8 +1,5 @@
 #!/bin/sh
 
-init() {
-}
-
 launch_job() {
   hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
   -input /user/hadoop/wc/input \
@@ -11,9 +8,6 @@ launch_job() {
   -mapper /home/hadoop/mapper_test.py \
   -file /home/hadoop/reducer.py \
   -reducer /home/hadoop/reducer.py
-}
-
-run_job() {
 }
 
 launch_job
