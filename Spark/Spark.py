@@ -2,15 +2,17 @@
 ##  INITIALIZATION  ##
 ######################
 
-startNode, endNode = 50, 359
+startNode, endNode = 0, 710
 
 # Preparing the environment
 from pyspark.sql.functions import monotonically_increasing_id
+import timeit
 
 # Loading and formatting the txt file
-rawFile = sc.textFile("../data/graph.txt")
-file = rawFile.map(lambda x: (x.split('\t')[0], x.split('\t')[2], [x.split('\t')[0],  x.split('\t')[2]], int(x.split('\t')[1]), 0))
+rawFile = sc.textFile("../data/road_sf.txt")
+file = rawFile.map(lambda x: (x.split('\t')[0], x.split('\t')[2], [x.split('\t')[0],  x.split('\t')[2]], float(x.split('\t')[1]), 0))
 columns = ["startPath", "endPath", "totalPath", "cumDistance", "ignore"]
+
 
 # Creating and formatting a DataFrame
 df = spark.createDataFrame(file, schema = columns)
@@ -35,10 +37,12 @@ else:
     numberIterations = 0
     bestPathFound = False
     noRoadToEndNode = False
+    start = timeit.default_timer()
     #
     while not bestPathFound and not noRoadToEndNode:
+        current = timeit.default_timer()
         numberIterations = numberIterations + 1
-        print("Iteration number ", numberIterations)
+        print("Iteration number ", numberIterations, " - Time elapsed:", round(current-start,0), "s")
         #
         # (3) Identifying the closest point "x" from the starting node
         #
@@ -82,7 +86,7 @@ else:
                                          closestNeighbor1[0]['startPath'], 
                                          closestNeighbor2[0]['endPath'],
                                          totalPath1 + totalPath2[1:],
-                                         int(closestNeighbor1[0]['minCumDistance']) + int(closestNeighbor2[0]['minCumDistance']),
+                                         float(closestNeighbor1[0]['minCumDistance']) + float(closestNeighbor2[0]['minCumDistance']),
                                          0)])
         #
         df = spark.sql("SELECT * FROM df WHERE id != {} AND id != {}".format(closestNeighbor1[0]['id'], closestNeighbor2[0]['id']))
