@@ -17,8 +17,6 @@ init() {
   echo "$END" > "$END_FILE"
 
   mv "$END_FILE" /home/hadoop/tmp
-
-  ./mapper_test.py
 }
 
 launch_job() {
@@ -27,8 +25,8 @@ launch_job() {
   -output /user/hadoop/wc/output \
   -file /home/hadoop/mapper_test.py \
   -mapper /home/hadoop/mapper_test.py \
-  -file /home/hadoop/reducer.py \
-  -reducer /home/hadoop/reducer.py
+  -file /home/hadoop/reducer_test.py \
+  -reducer /home/hadoop/reducer_test.py
 }
 
 init
