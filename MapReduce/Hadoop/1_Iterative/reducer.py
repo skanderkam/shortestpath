@@ -2,12 +2,12 @@
 import sys
 
 # Initializing the start variable
-start_file = open('MapReduce/tmp/_start.txt', 'r')
+start_file = open('MapReduce/Local/tmp/_start.txt', 'r')
 start = start_file.readline(1)
 start_file.close()
 
 # Initializing the end variable
-end_file = open('MapReduce/tmp/_end.txt', 'r')
+end_file = open('MapReduce/Local/tmp/_end.txt', 'r')
 end = end_file.readline(1)
 end_file.close()
 
@@ -78,6 +78,6 @@ if current_dist < min_dist:
 start = min_node
 if start is None:
     start = "None"
-start_file = open('MapReduce/tmp/_start.txt', 'w')
+start_file = open('MapReduce/Local/tmp/_start.txt', 'w')
 start_file.write(start)
 start_file.close()

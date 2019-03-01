@@ -5,7 +5,7 @@ START="$2"
 END="$3"
 
 init() {
-  TMP_DIR="$(pwd)/MapReduce/tmp/"
+  TMP_DIR="$(pwd)/MapReduce/Local/tmp/"
 
   START_FILENAME="_start.txt"
   START_FILE="$TMP_DIR$START_FILENAME"
@@ -55,7 +55,7 @@ run_job() {
   if [ ! -f "$INPUT_FILE" ] 
   then
     echo "Input file not found"
-    elif [ "$(cat "$INPUT_FILE" | ./MapReduce/0_Preprocessing/init.py)" == "0" ]
+    elif [ "$(cat "$INPUT_FILE" | ./MapReduce/Local/0_Preprocessing/init.py)" == "0" ]
     then
         echo "Start node or end node unreachable"
     else
