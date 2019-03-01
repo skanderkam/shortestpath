@@ -70,9 +70,9 @@ if current_dist < min_dist:
     min_node = current_node
 
 # Writing the new start node
-# start = min_node
-# if start is None:
-#     start = "None"
-# start_file = open('_start.txt', 'w')
-# start_file.write(start)
-# start_file.close()
+start = min_node
+if start is None:
+    start = "None"
+start_file = open('_start.txt', 'w')
+start_file.write(start)
+start_file.close()
