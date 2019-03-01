@@ -36,7 +36,8 @@ launch_job() {
   -file /home/hadoop/mapper_i.py \
   -mapper /home/hadoop/mapper_i.py \
   -file /home/hadoop/reducer_i.py \
-  -reducer /home/hadoop/reducer_i.py
+  -reducer /home/hadoop/reducer_i.py \
+  -D mapred.reduce.tasks=1
 }
 
 init
