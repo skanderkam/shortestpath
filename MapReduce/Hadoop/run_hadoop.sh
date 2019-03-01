@@ -27,6 +27,7 @@ launch_job() {
   -mapper /home/hadoop/mapper_test.py \
   -file /home/hadoop/reducer_test.py \
   -reducer /home/hadoop/reducer_test.py
+  
 }
 
 init

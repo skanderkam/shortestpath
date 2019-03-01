@@ -3,8 +3,8 @@
 import sys
 
 # Initializing the start variable
-#start_file = open('/home/hadoop/tmp/_start.txt', 'r')
-#start = start_file.readline(1)
+# start_file = open('/home/hadoop/tmp/_start.txt', 'r')
+# start = start_file.readline(1)
 
 # Initialization Map
 for line in sys.stdin:
@@ -16,6 +16,6 @@ for line in sys.stdin:
     dist = float('inf')
 
     # Distance = 0 if the node is the start
-    #if line[0] == start:
+    # if line[0] == start:
     #    dist = 0
     print '%s\t(%s,(%s;%s),%s)' % (line[0], dist, line[2], line[1], " ")
