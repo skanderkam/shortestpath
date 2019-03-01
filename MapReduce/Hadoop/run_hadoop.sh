@@ -30,3 +30,4 @@ launch_job() {
 }
 
 init
+launch_job
