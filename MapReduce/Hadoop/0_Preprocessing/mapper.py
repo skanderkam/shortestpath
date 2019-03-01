@@ -2,30 +2,20 @@
 import sys
 import os
 
-import os
-cwd = os.getcwd()
+# Initializing the start variable
+start_file = open('_start.txt', 'r')
+start = start_file.readline(1)
 
+# Initialization Map
 for line in sys.stdin:
-    print(cwd)
-
-
-
-# # Initializing the start variable
-# start_file = open('/home/hadoop/tmp/_start.txt', 'r')
-# start = start_file.readline(1)
-
-# # Initialization Map
-# for line in sys.stdin:
-#     # Parse the input from the graph
-#     line = line.strip('\n')
-#     line = line.split('\t')
+    # Parse the input from the graph
+    line = line.strip('\n')
+    line = line.split('\t')
     
-#     # Distance = infinity by default
-#     dist = float('inf')
+    # Distance = infinity by default
+    dist = float('inf')
 
-#     # Distance = 0 if the node is the start
-#     if line[0] == start:
-#         dist = 0
-#     print '%s\t(%s,(%s;%s),%s)' % (line[0], dist, line[2], line[1], " ")
-
-# with client_hdfs
+    # Distance = 0 if the node is the start
+    if line[0] == start:
+        dist = 0
+    print '%s\t(%s,(%s;%s),%s)' % (line[0], dist, line[2], line[1], " ")

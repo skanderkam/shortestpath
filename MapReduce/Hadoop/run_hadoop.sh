@@ -15,6 +15,7 @@ init() {
 
 launch_job() {
   hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+  -file /home/hadoop/tmp/_start.txt \
   -input /user/hadoop/wc/input \
   -output /user/hadoop/wc/output \
   -file /home/hadoop/mapper.py \
