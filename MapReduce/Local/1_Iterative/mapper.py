@@ -28,7 +28,10 @@ for line in sys.stdin:
     if node == start and neighbors != ' ':
 
         # Transforming the distance into an integer for the purpose of computation
-        dist = int(value_clean[0])
+        if value_clean[0] == 'inf':
+            dist = float(value_clean[0])
+        else:
+            dist = int(value_clean[0])
         
         for neighbor in neighbors:
 

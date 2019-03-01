@@ -76,8 +76,12 @@ if current_dist < min_dist:
 
 # Writing the new start node
 start = min_node
+
+# If there is no new start variable (all is inf), then start is "None"
 if start is None:
     start = "None"
+
+# Writing the new start node
 start_file = open('MapReduce/Local/tmp/_start.txt', 'w')
 start_file.write(start)
 start_file.close()
