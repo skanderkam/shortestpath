@@ -11,12 +11,6 @@ init() {
   echo "$START" > "$START_FILE"
 
   mv "$START_FILE" /home/hadoop/tmp
-
-  END_FILENAME="_end.txt"
-  END_FILE="$TMP_DIR$END_FILENAME"
-  echo "$END" > "$END_FILE"
-
-  mv "$END_FILE" /home/hadoop/tmp
 }
 
 launch_job() {
@@ -26,8 +20,7 @@ launch_job() {
   -file /home/hadoop/mapper_test.py \
   -mapper /home/hadoop/mapper_test.py \
   -file /home/hadoop/reducer_test.py \
-  -reducer /home/hadoop/reducer_test.py
-  
+  -reducer /home/hadoop/reducer_test.py  
 }
 
 init
