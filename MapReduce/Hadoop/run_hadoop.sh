@@ -18,7 +18,7 @@ init() {
 
   mv "$END_FILE" /home/hadoop/tmp
 
-  ./home/hadoop/mapper_test.py
+  ./mapper_test.py
 }
 
 launch_job() {
