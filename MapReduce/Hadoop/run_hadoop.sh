@@ -14,6 +14,7 @@ init() {
 }
 
 launch_job() {
+  # Preprocessing
   hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
   -file /home/hadoop/tmp/_start.txt \
   -input /user/hadoop/wc/input \
@@ -21,7 +22,21 @@ launch_job() {
   -file /home/hadoop/mapper.py \
   -mapper /home/hadoop/mapper.py \
   -file /home/hadoop/reducer.py \
-  -reducer /home/hadoop/reducer.py  
+  -reducer /home/hadoop/reducer.py
+
+  hdfs dfs -rm -r /user/hadoop/wc/input/*
+  hdfs dfs -mv /user/hadoop/wc/output/* /user/hadoop/wc/input
+  hdfs dfs -rm -r /user/hadoop/wc/output
+
+  # First MapReduce
+  hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+  -file /home/hadoop/tmp/_start.txt \
+  -input /user/hadoop/wc/input \
+  -output /user/hadoop/wc/output \
+  -file /home/hadoop/mapper_i.py \
+  -mapper /home/hadoop/mapper_i.py \
+  -file /home/hadoop/reducer_i.py \
+  -reducer /home/hadoop/reducer_i.py
 }
 
 init
